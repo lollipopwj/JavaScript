@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div {width:100px; height:100px; background:pink; margin:10px; float:left; border:3px solid grey;}
+#div4 {filter:alpha(opacity:30); opacity:0.3;}
+</style>
+<script>
+window.onload=function ()
+{
+var oDiv1=document.getElementById('div1');
+var oDiv2=document.getElementById('div2');
+var oDiv3=document.getElementById('div3');
+var oDiv4=document.getElementById('div4');
+
+     oDiv1.onmouseover=function ()
+   {
+     startMove(this,'height',400);
+   };
+     oDiv1.onmouseout=function ()
+   {
+     startMove(this,'height',100);
+   };
+   
+   oDiv2.onmouseover=function ()
+   {
+     startMove(this,'width',400);
+   };
+     oDiv2.onmouseout=function ()
+   {
+     startMove(this,'width',100);
+   };
+   
+   oDiv3.onmouseover=function ()
+   {
+     startMove(this,'fontSize',50);
+   };
+     oDiv3.onmouseout=function ()
+   {
+     startMove(this,'fontSize',14);
+   };
+   
+     oDiv4.onmouseover=function ()
+   {
+     startMove(this,'opacity',100);
+   };
+     oDiv4.onmouseout=function ()
+   {
+     startMove(this,'opacity',30);
+   };
+function getStyle(obj,name)
+{
+	if(obj.currentStyle)
+	{
+	return obj.currentStyle[name];
+	}
+	else
+	{
+	return getComputedStyle(obj,false)[name];
+	}
+};
+function startMove(obj, attr, iTarget)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function (){	
+		var cur=0;
+		
+		if(attr=='opacity')
+		{
+			cur=Math.round(parseFloat(getStyle(obj, attr))*100);
+		}
+		else
+		{
+			cur=parseInt(getStyle(obj, attr));
+		}
+		var speed=(iTarget-cur)/6;
+		speed=speed>0?Math.ceil(speed):Math.floor(speed);
+		if(cur==iTarget)
+		{
+			clearInterval(obj.timer)
+		}
+		else
+		{
+			if(attr=='opacity')
+			{
+				obj.style.filter='alpha(opacity:'+(cur+speed)+')';
+				obj.style.opacity=(cur+speed)/100;
+			}
+			else
+			{
+			obj.style[attr]=cur+speed+'px';
+			}
+		}
+		},30)
+};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">变高</div>
+<div id="div2">变宽</div>
+<div id="div3">字体变大</div>
+<div id="div4">变透明</div>
+</body>
+</html>
+

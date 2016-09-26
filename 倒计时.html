@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>倒计时</title>
+</head>
+<script type="text/javascript">     
+window.onload = function()
+{
+　　var timedate= new Date("2,14,2017");       
+　　var now = new Date();    
+　　var date = timedate.getTime() - now.getTime();   //得出毫秒数
+　　var time = Math.ceil(date/(1000 * 60 * 60 * 24));    
+    //1000 * 60 * 60 * 24一天的秒数
+    if(time > 0 ){
+	  document.getElementById('timeShow').innerHTML = time;
+	};
+};
+</script>
+</head>
+<body>
+   <div class="content2">
+    <div class="txtshow">倒计时还有<span  id="timeShow"></span>天</div>
+   </div>
+</body>
+</html>

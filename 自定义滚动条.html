@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#parent {width:600px; height:20px; background:grey; position:relative; margin:10px auto;}
+#div1 {width:20px; height:20px; background:pink; position:absolute; left:0; top:0;}
+#div2 {width:400px; height:300px; border:1px solid black; overflow:hidden; position:relative;}
+#div3 {position:absolute; top:0; left:0; padding:10px;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');	
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	var oParent=document.getElementById('parent');
+	var disX=0;
+	 
+	oDiv.onmousedown=function (ev)
+	{
+		var oEvent=ev||event;
+		disX=oEvent.clientX-oDiv.offsetLeft;
+		 
+		document.onmousemove=function (ev)
+		{
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX;
+		 
+		 if(l<0)
+		 {
+			 l=0;
+		 }
+		 else if(l>oParent.offsetWidth-oDiv.offsetWidth)
+		 {
+			 l=oParent.offsetWidth-oDiv.offsetWidth;
+		 }
+		 
+			oDiv.style.left=l+'px';
+			
+			var scale=l/(oParent.offsetWidth-oDiv.offsetWidth);
+			document.title=scale;
+			
+			oDiv3.style.top=-scale*(oDiv3.offsetHeight-oDiv2.offsetHeight)+'px';
+	    };
+		
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		};
+		return false;
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="parent">
+   <div id="div1"></div>
+</div>
+<div id="div2">
+   <div id="div3">
+链接：https://www.zhihu.com/question/19667267/answer/111826353
+来源：知乎
+著作权归作者所有，转载请联系作者获得授权。
+
+今天不会有人因为一个工程师造出了一台蒸汽机而惊讶，但也没有人会怀疑两百年前瓦特改良出蒸汽机的伟大，可惜的是这种认知一旦到绘画艺术上来，思维的转换就变得困难。对于普通大众来说，《蒙娜丽莎》如何好其实是一个认知局限上的问题，局限就在于我们前卫的艺术观念和极为丰富的视觉经验——你见过各式各样的艺术形式，也见过不计其数的现代图像和照片。要体会到《蒙娜丽莎》在16世纪引起的视觉震撼可能需要丰富的历史想象力。
+
+达芬奇的艺术观念其实非常好解释，就是一种朴素的自然主义绘画观——再朴素一点：就是想利用绘画完美地再现自然。
+他的作品应当像镜子那样，如实反映安放在镜前的各物体的许多色彩。作到这一点，他仿佛就是第二自然。 ——达芬奇论绘画 
+《蒙娜丽莎》也不例外，也就是尽其所能得呈现一个人的真实面貌。但是它呈现的好吗？虽然一开始就提醒大家要有丰富的历史想象力，但我们还是缺乏相关的思维逻辑和图像经验，这里容我稍微啰嗦一下，帮助你们做一点点铺垫。
+
+《我的名字叫红》里记叙过中国古代绘画艺术对当时波斯细密画的影响，一项重要影响就是写实的艺术风格。抱歉，写实的风格？我们会认为中国绘画是一项写实的艺术吗，但是如果你站在细密画的角度却就能够很好的理解了：
+今天不会有人因为一个工程师造出了一台蒸汽机而惊讶，但也没有人会怀疑两百年前瓦特改良出蒸汽机的伟大，可惜的是这种认知一旦到绘画艺术上来，思维的转换就变得困难。对于普通大众来说，《蒙娜丽莎》如何好其实是一个认知局限上的问题，局限就在于我们前卫的艺术观念和极为丰富的视觉经验——你见过各式各样的艺术形式，也见过不计其数的现代图像和照片。要体会到《蒙娜丽莎》在16世纪引起的视觉震撼可能需要丰富的历史想象力。
+
+达芬奇的艺术观念其实非常好解释，就是一种朴素的自然主义绘画观——再朴素一点：就是想利用绘画完美地再现自然。
+他的作品应当像镜子那样，如实反映安放在镜前的各物体的许多色彩。作到这一点，他仿佛就是第二自然。 ——达芬奇论绘画 
+《蒙娜丽莎》也不例外，也就是尽其所能得呈现一个人的真实面貌。但是它呈现的好吗？虽然一开始就提醒大家要有丰富的历史想象力，但我们还是缺乏相关的思维逻辑和图像经验，这里容我稍微啰嗦一下，帮助你们做一点点铺垫。
+
+《我的名字叫红》里记叙过中国古代绘画艺术对当时波斯细密画的影响，一项重要影响就是写实的艺术风格。抱歉，写实的风格？我们会认为中国绘画是一项写实的艺术吗，但是如果你站在细密画的角度却就能够很好
+</div>
+</div>
+</body>
+</html>
+

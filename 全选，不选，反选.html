@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var ath=document.getElementById('btn1');
+	var bth=document.getElementById('btn2');
+	var cth=document.getElementById('btn3');
+	var ami=document.getElementById('ali');
+	var aoh=ami.getElementsByTagName('input');
+	ath.onclick=function()
+	{
+	  for(var i=0;i<aoh.length;i++)
+	  {
+		  aoh[i].checked=true;
+	  }
+	};
+	bth.onclick=function()
+	{
+	  for(var i=0;i<aoh.length;i++)
+	  {
+		  aoh[i].checked=false;
+		  }	
+		};
+	cth.onclick=function()
+	{
+	  for(var i=0;i<aoh.length;i++)
+	  {
+		  if(aoh[i].checked==true)
+		 {
+			  aoh[i].checked=false;
+		 }
+		 else
+		 {
+			 aoh[i].checked=true;
+		 }
+	  }
+	}
+}
+</script>
+</head>
+
+<body>
+
+<input id="btn1" type="button" value="全选"/><br/>
+<input id="btn2" type="button" value="不选"/><br/>
+<input id="btn3" type="button" value="反选"/><br/>
+<div id="ali">
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+<input type="checkbox"/><br/>
+</div>
+</body>
+</html>
