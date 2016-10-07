@@ -4,12 +4,14 @@
 <meta charset="utf-8">
 <title>无标题文档</title>
 <script>
-function createPerson(name,  qq)
+//混合的构造函数/原型方法
+//给构造函数加属性，给原型加方法
+function createPerson(name,  qq)               //构造函数
 {
 	this.name=name;
 	this.qq=qq;
 }
-createPerson.prototype.showName=function ()
+createPerson.prototype.showName=function ()    //原型
 {
 	alert('我的名字叫：'+this.name);
 };
